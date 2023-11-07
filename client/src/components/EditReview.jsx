@@ -63,10 +63,22 @@ const EditReview = () => {
             console.log("error deleting review", err.response);
         })
     }
+    function changeColor(e) {
+        e.target.style.background = 'turquoise';
+    }
+    function changeBack(e) {
+        e.target.style.background = 'lightblue';
+    }
+    function changeDColor(e) {
+        e.target.style.background = 'red';
+    }
+    function changeBackD(e) {
+        e.target.style.background = 'lightPink';
+    }
 
     return (
         <div>
-            <h2>Edit Review</h2>
+            <h2 style={{fontFamily: 'copperplate'}}>Edit Review</h2>
             <form onSubmit={handleSubmit}>
                 <div style={{margin: '10px'}}>
                     <label htmlFor="">Name: </label>
@@ -103,11 +115,11 @@ const EditReview = () => {
                         error.rating ? <p>{error.rating.message}</p> : null
                     }
                 </div>
-                <button style={{backgroundColor: 'lightBlue', margin: '10px'}}>Submit</button>
+                <button style={{backgroundColor: 'lightBlue', margin: '10px'}}onMouseOver={changeColor} onMouseLeave={changeBack}>Submit</button>
                 <Link to={"/"}>
-                    <button style={{margin: '10px', backgroundColor: 'lightPink'}}>Cancel</button>
+                    <button style={{margin: '10px', backgroundColor: 'lightBlue'}} onMouseOver={changeColor} onMouseLeave={changeBack}>Cancel</button>
                 </Link>
-                <button onClick={(e) => handleDelete(review._id)} style={{backgroundColor: 'red', margin: '10px'}}>Delete</button>
+                <button onClick={(e) => handleDelete(review._id)} style={{backgroundColor: 'lightPink', margin: '10px'}}onMouseOver={changeDColor} onMouseLeave={changeBackD}>Delete</button>
             </form>
         </div>
     )

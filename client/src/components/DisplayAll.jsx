@@ -21,38 +21,51 @@ const DisplayAll = () => {
             console.log(err)
         })
     }, [])
-
-    // const handleDelete = (reviewId) => {
-    //     axios.delete('http://localhost:8000/api/reviews/' + reviewId)
-    //         .then(res => {
-    //             console.log("success deleting review");
-    //             console.log(res)
-    //             const filteredReviews = allReviews.filter((review) => {
-    //                 return review._id !== reviewId;
-    //             });
-    //             setAllReviews(filteredReviews);
-    //             })
-    //         .catch(err => {
-    //             console.log("error deleting review", err.response);
-    //         })
-    // }
+    function changeColor(e) {
+        e.target.style.background = 'lightSeaGreen';
+    }
+    function changeBack(e) {
+        e.target.style.background = 'lightCyan';
+    }
+    function changeLColor(e) {
+        e.target.style.background = 'green';
+    }
+    function changeBackL(e) {
+        e.target.style.background = 'lightGreen';
+    }
 
     return (
         <div>
-            <h2>Reviews Completed:</h2>
+            <h2 style={{fontFamily: 'copperplate'}}>Reviews Completed:</h2>
+            <div style={{display: 'flex', flex: '1', flexWrap: 'wrap', justifyContent: 'space-evenly'}}>
             { 
                 allReviews.map((review) => (
                     <div key={review._id}>
-                        <p>Name: {review.name}</p>
-                        <Link to={`/oneReview/${review._id}`}>
-                            <button style={{margin: '10px', backgroundColor: 'lightcyan'}}>Details</button>
-                        </Link>
-                        <Link to={'/reviews/' + review._id}>
-                            <button style={{margin: '10px', backgroundColor: 'lightseagreen'}}>Edit a review</button>
-                        </Link>
+                        <div>
+                            <h3 style={{fontFamily: 'cursive'}}>{review.name}</h3>
+                            <Link to={`/oneReview/${review._id}`}>
+                                <button style={{margin: '10px', backgroundColor: 'lightcyan'}} onMouseOver={changeColor} onMouseLeave={changeBack}>Details</button>
+                            </Link>
+                            <Link to={'/reviews/' + review._id}>
+                                <button style={{margin: '10px', backgroundColor: 'lightcyan'}} onMouseOver={changeColor} onMouseLeave={changeBack}>Edit a review</button>
+                            </Link>
+                        </div>
                     </div>
                 ))
             }
+            </div>
+            <div>
+                <h2 style={{fontFamily: 'copperplate'}}>Find New Games!</h2>
+                <a href="https://store.steampowered.com/charts/mostplayed/">
+                    <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Steam's Most Played</button>
+                </a>
+                <a href="https://www.twitch.tv/">
+                    <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Check Out Twitch!</button>
+                </a>
+                <a href="https://www.vgreleaselist.com/#closest">
+                    <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Keep Up With New Releases</button>
+                </a>
+            </div>
         </div>
     )
 }

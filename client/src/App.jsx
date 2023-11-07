@@ -11,7 +11,7 @@ function App() {
 
 
   return (
-    <>
+    <div style={{backgroundImage: `url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSskbuz_M0t9SIrsgEpRJ16ZKEuzaO5EZh1w&usqp=CAU")`}}>
       <BrowserRouter>
       <Nav/>
         <Routes>
@@ -21,7 +21,7 @@ function App() {
           <Route path="/oneReview/:id" element={ <OneReview/> } />
         </Routes>
       </BrowserRouter>
-    </>
+    </div>
   )
 }
 

@@ -32,10 +32,22 @@ const Form = () => {
                 setError(err.response.data.error.errors)
             })
     }
+    function changeColor(e) {
+        e.target.style.background = 'turquoise';
+    }
+    function changeBack(e) {
+        e.target.style.background = 'lightblue';
+    }
+    function changeCColor(e) {
+        e.target.style.background = 'red';
+    }
+    function changeBackC(e) {
+        e.target.style.background = 'lightPink';
+    }
 
     return (
         <div>
-            <h2>Add a new Review:</h2>
+            <h2 style={{fontFamily: 'copperplate'}}>Add a new Review:</h2>
             <form onSubmit={handleSubmit}>
                 <div style={{margin: '10px'}}>
                     <label htmlFor="">Name: </label>
@@ -72,9 +84,9 @@ const Form = () => {
                         error.rating ? <p>{error.rating.message}</p> : null
                     }
                 </div>
-                <button style={{backgroundColor: 'lightBlue', margin: '10px'}}>Submit</button>
+                <button style={{backgroundColor: 'lightBlue', margin: '10px'}} onMouseOver={changeColor} onMouseLeave={changeBack}>Submit</button>
                 <Link to={"/"}>
-                    <button style={{margin: '10px', backgroundColor: 'lightPink'}}>Cancel</button>
+                    <button style={{margin: '10px', backgroundColor: 'lightPink'}} onMouseOver={changeCColor} onMouseLeave={changeBackC}>Cancel</button>
                 </Link>
             </form>
         </div>

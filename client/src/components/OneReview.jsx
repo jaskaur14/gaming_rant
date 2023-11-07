@@ -39,25 +39,10 @@ const OneReview = () => {
             console.log("error deleting review", err.response);
         })
     }
-    // const handleDelete = (authorId) => {
-    //     axios.delete('http://localhost:8000/api/authors/' + authorId)
-    //         .then(res => {
-    //             console.log("success deleting author");
-    //             console.log(res)
-    //             navigate("/")
-    //             const filteredAuthors = allAuthors.filter((author) => {
-    //                 return author._id !== authorId;
-    //             });
-    //             setAllAuthors(filteredAuthors);
-    //             })
-    //         .catch(err => {
-    //             console.log("error deleting author", err.response);
-    //         })
-    // }
 
     return (
         <div>
-            <h1>{review.name}</h1>
+            <h1 style={{fontFamily: 'cursive'}}>{review.name}</h1>
             <p style={{padding: '10px'}}>Date Released: {review.date}</p>
             <p style={{padding: '10px'}}>Hours Played: {review.hoursPlayed}</p>
             <p style={{padding: '10px'}}>Review: {review.description}</p>
