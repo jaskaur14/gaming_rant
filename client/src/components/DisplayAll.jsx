@@ -41,7 +41,7 @@ const DisplayAll = () => {
             { 
                 allReviews.map((review) => (
                     <div key={review._id}>
-                        <div>
+                        <div style={{border: 'solid', borderColor: 'lightGrey', margin: '10px'}}>
                             <h3 style={{fontFamily: 'cursive'}}>{review.name}</h3>
                             <Link to={`/oneReview/${review._id}`}>
                                 <button style={{margin: '10px', backgroundColor: 'lightcyan'}} onMouseOver={changeColor} onMouseLeave={changeBack}>Details</button>
@@ -56,13 +56,13 @@ const DisplayAll = () => {
             </div>
             <div>
                 <h2 style={{fontFamily: 'copperplate'}}>Find New Games!</h2>
-                <a href="https://store.steampowered.com/charts/mostplayed/">
+                <a href="https://store.steampowered.com/charts/mostplayed/" target={'_blank'}>
                     <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Steam's Most Played</button>
                 </a>
-                <a href="https://www.twitch.tv/">
+                <a href="https://www.twitch.tv/" target={'_blank'}>
                     <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Check Out Twitch!</button>
                 </a>
-                <a href="https://www.vgreleaselist.com/#closest">
+                <a href="https://www.vgreleaselist.com/#closest" target={'_blank'}>
                     <button style={{margin: '20px', backgroundColor: 'lightGreen'}} onMouseOver={changeLColor} onMouseLeave={changeBackL}>Keep Up With New Releases</button>
                 </a>
             </div>
